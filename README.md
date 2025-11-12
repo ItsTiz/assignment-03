@@ -4,6 +4,26 @@ PCD a.y. 2024-2025 - ISI LM UNIBO - Cesena Campus
 
 v1.0.0-20250605
 
+This project has been converted to use Scala's SBT build tool. The existing sources are currently Java and are compiled by SBT (Scala is optional at this stage). The previous Maven pom.xml is left in the repo only for reference and is no longer used.
+
+## Build and run with SBT
+
+Prerequisites:
+- Java 17 (JDK)
+- sbt 1.10.x (a wrapper is not provided; install sbt from https://www.scala-sbt.org/)
+
+Common commands (run from the project root):
+- sbt compile — compiles Java sources under src/main/java
+- sbt test — runs tests (none provided by default)
+- sbt package — builds a JAR under target/scala-2.13/
+- sbt clean — cleans build artifacts
+
+Notes:
+- Source layout follows SBT defaults and remains compatible with IntelliJ IDEA/Metals.
+- If/when you add a Scala entrypoint, you can set the main class in build.sbt, e.g.:
+  - Compile / run / mainClass := Some("sequential.Main")
+- To ignore Maven and IDE artifacts, see .gitignore.
+
 **1) About Asyncronous Message Passing with Actors (not distributed)**
 
 Develop an actor-based solution of the *Concurrent Boids* problem, presented in Assignment #01, with the same GUI. Requirements (analogous to the first assignment):
