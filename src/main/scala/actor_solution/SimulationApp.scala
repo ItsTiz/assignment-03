@@ -10,7 +10,7 @@ object SimulationApp:
   def apply():Behavior[NotUsed] =
     Behaviors.setup { context =>
       val controller = context.spawn(SimulationController(), "SimulationController")
-      val renderer = context.spawn(RendererActor(), "gabbler")
+      val renderer = context.spawn(RendererActor(), "Renderer")
       context.watch(renderer)
 
       Behaviors.receiveSignal {

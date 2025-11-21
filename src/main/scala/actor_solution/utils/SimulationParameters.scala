@@ -6,6 +6,7 @@ object SimulationParameters:
    * General
    * */
   val boidNumber: Int = 1000
+  val workerActors: Int  = 16
   val framerate: Int = 60
   val updateInterval: Long = 1000 / framerate
   val environmentWidth: Int = 1000
@@ -23,3 +24,6 @@ object SimulationParameters:
   val boidMaxSpeed: Double = 4.0
   val boidPerceptionRadius: Double = 30.0
   val boidAvoidRadius: Double = 20.0
+  val separationWeight = 1.0
+  val alignmentWeight = 1.0
+  val cohesionWeight = 1.0

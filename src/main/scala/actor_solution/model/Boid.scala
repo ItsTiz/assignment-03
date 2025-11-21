@@ -58,9 +58,7 @@ object Boid:
         isNotSelf && isNearby
       }*/
 
-    def withUpdatedVel(model: BoidsModel): Boid =
-      val nearbyBoids = boid.getNearbyBoids(model)
-
+    def withUpdatedVel(model: BoidsModel, nearbyBoids: List[Boid]): Boid =
       val separation = Boid.calculateSeparation(boid, nearbyBoids, boidAvoidRadius)
       val alignment = Boid.calculateAlignment(boid, nearbyBoids)
       val cohesion = Boid.calculateCohesion(boid, nearbyBoids)

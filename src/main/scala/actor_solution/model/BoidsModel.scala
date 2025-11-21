@@ -19,17 +19,9 @@ case class BoidsModel(
 
 object BoidsModel:
 
-  /** Creates a new BoidsModel with an initial, randomized list of boids. */
-  def apply(
-      initialSeparationWeight: Double,
-      initialAlignmentWeight: Double,
-      initialCohesionWeight: Double
-  ): BoidsModel =
-    BoidsModel(initialSeparationWeight, initialAlignmentWeight, initialCohesionWeight)
-
-    /*
+  def randomBoids(): List[Boid] =
     val rand = new Random()
-    val itialBoids = List.fill(boidNumber) {
+    List.fill(boidNumber) {
       val pos = P2d(
         -environmentWidth / 2 + rand.nextDouble() * environmentWidth,
         -environmentHeight / 2 + rand.nextDouble() * environmentHeight
@@ -40,4 +32,15 @@ object BoidsModel:
       )
       Boid(pos, vel)
     }
-    */
+
+  def partition[A](list: List[A], n: Int): List[List[A]] = {
+    val size = list.size
+    val base = size
+    val extra = size % n
+
+    (0 until n).toList.map { i =>
+      val start = i * base + math.min(i, extra)
+      val end = start + base + (if (i < extra) 1 else 0)
+      list.slice(start, end)
+    }
+  }
