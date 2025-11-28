@@ -9,8 +9,8 @@ import akka.actor.typed.scaladsl.Behaviors
 object SimulationApp:
   def apply():Behavior[NotUsed] =
     Behaviors.setup { context =>
-      val controller = context.spawn(SimulationController(), "SimulationController")
       val renderer = context.spawn(RendererActor(), "Renderer")
+      val controller = context.spawn(SimulationController(renderer), "SimulationController")
       context.watch(renderer)
 
       Behaviors.receiveSignal {

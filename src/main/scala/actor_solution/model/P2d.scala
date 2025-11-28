@@ -1,5 +1,6 @@
 package actor_solution.model
 
+import actor_solution.model.GridCell
 import actor_solution.model.V2d.V2d
 
 object P2d:
@@ -25,5 +26,8 @@ object P2d:
       val dx = point2.x - point.x
       val dy = point2.y - point.y
       Math.sqrt(dx * dx + dy * dy)
+
+    def toGridCell(cellSize: Double): GridCell =
+      GridCell(x = Math.floor(point.x / cellSize).toInt, y = Math.floor(point.y / cellSize).toInt)
 
 end P2d
