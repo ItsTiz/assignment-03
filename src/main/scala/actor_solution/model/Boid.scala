@@ -49,15 +49,6 @@ object Boid:
           V2d(0, 0)
 
   extension (boid: Boid)
-    def getNearbyBoids(model: BoidsModel): List[Boid] =
-      List()
-      /*
-      model.boids.filter { other =>
-        val isNotSelf = other != boid
-        val isNearby = boid.pos.distance(other.pos) < model.perceptionRadius
-        isNotSelf && isNearby
-      }*/
-
     def withUpdatedVel(model: BoidsModel, nearbyBoids: List[Boid]): Boid =
       val separation = Boid.calculateSeparation(boid, nearbyBoids, boidAvoidRadius)
       val alignment = Boid.calculateAlignment(boid, nearbyBoids)

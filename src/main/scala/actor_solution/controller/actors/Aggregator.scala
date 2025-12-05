@@ -32,14 +32,16 @@ object Aggregator:
         Behaviors.receiveMessage {
           case WrappedReply(reply) =>
             val newReplies = replies :+ reply.asInstanceOf[Reply]
-            if (newReplies.size == expectedReplies)
-              replyTo ! aggregateReplies(newReplies)
+            if (newReplies.size == expectedReplies) {
+              val result = aggregateReplies(newReplies)
+              replyTo ! result
               Behaviors.stopped
-            else
+            } else
               collecting(newReplies)
 
           case ReceiveTimeout =>
-            replyTo ! aggregateReplies(replies)
+            val aggregate = aggregateReplies(replies)
+            replyTo ! aggregate
             Behaviors.stopped
         }
 

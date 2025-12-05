@@ -7,16 +7,18 @@ object SimulationParameters:
    * */
   val boidNumber: Int = 1000
   val workerActors: Int  = 16
-  val framerate: Int = 60
+  val framerate: Int = 144
   val updateInterval: Long = 1000 / framerate
-  val environmentWidth: Int = 1000
-  val environmentHeight: Int = 1000
+  val environmentWidth: Int = 1920
+  val environmentHeight: Int = 1080
 
   /**
    * UI
    * */
-  val windowWidth: Int = 800
-  val windowHeight: Int = 800
+  val windowWidth: Int = 1920
+  val windowHeight: Int = 1080
+  val boidWidth: Int = 5
+  val boidHeight: Int = 5
 
   /**
    * Boids

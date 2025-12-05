@@ -1,14 +1,11 @@
 package actor_solution.view
 
-import java.awt.Graphics2D
-
-// Trait for drawable elements
 trait Drawable[G]:
   def draw(graphic: G): Unit
 
 trait ElementFactory[G]:
-  def createRectangle(x: Int, y: Int, width: Int, height: Int): Drawable[G]
+  def createBoid(x: Int, y: Int, width: Int, height: Int): Drawable[G]
 
 trait DrawablePanel[G]:
-  def addElement(element: Drawable[G]): Unit
-  def whenClicked(listener: (Int, Int) => Unit): Unit
+  def updateBoids(newBoids: Seq[Drawable[G]]): Unit
+  //def whenClicked(listener: (Int, Int) => Unit): Unit

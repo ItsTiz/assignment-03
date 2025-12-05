@@ -35,7 +35,7 @@ object BoidsModel:
 
   def partition[A](list: List[A], n: Int): List[List[A]] = {
     val size = list.size
-    val base = size
+    val base = math.floor(size / n).toInt
     val extra = size % n
 
     (0 until n).toList.map { i =>

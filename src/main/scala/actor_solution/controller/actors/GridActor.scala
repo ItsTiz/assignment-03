@@ -38,11 +38,10 @@ object GridActor:
         def singleBoidSearch(boid: Boid): Seq[Boid] =
           val centerCell = boid.pos.toGridCell(cellSize)
           val cellRadius = Math.ceil(radius / cellSize).toInt
-
-          val neighborCells = for {
+          val neighborCells = for
             dx <- -cellRadius to cellRadius
             dy <- -cellRadius to cellRadius
-          } yield GridCell(centerCell.x + dx, centerCell.y + dy)
+          yield GridCell(centerCell.x + dx, centerCell.y + dy)
 
           neighborCells
             .flatMap(cells.get)
